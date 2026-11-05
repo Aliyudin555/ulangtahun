@@ -1,0 +1,1466 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday | 5 November</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(
+                135deg,
+                #ffffff 0%,
+                #fff5fa 40%,
+                #ffd9e9 100%
+            );
+            color: #6b3450;
+            overflow-x: hidden;
+        }
+
+        /* Background decoration */
+        .background-glow {
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            z-index: -1;
+        }
+
+        .glow-1 {
+            background: #ffb6d5;
+            top: -150px;
+            left: -100px;
+        }
+
+        .glow-2 {
+            background: #ffd6e8;
+            bottom: -150px;
+            right: -100px;
+        }
+
+        /* Floating balloons */
+        .balloons {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -180px;
+            width: 65px;
+            height: 82px;
+            border-radius: 50% 50% 45% 45%;
+            opacity: 0.65;
+            animation: floatUp linear infinite;
+        }
+
+        .balloon::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 13px;
+            background: inherit;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 65px;
+            background: rgba(180, 100, 140, 0.4);
+            top: 88px;
+            left: 50%;
+        }
+
+        .balloon:nth-child(1) {
+            left: 5%;
+            background: #ff9ec8;
+            animation-duration: 17s;
+        }
+
+        .balloon:nth-child(2) {
+            left: 20%;
+            background: #ffc9df;
+            width: 45px;
+            height: 60px;
+            animation-duration: 21s;
+            animation-delay: 4s;
+        }
+
+        .balloon:nth-child(3) {
+            left: 78%;
+            background: #f8a9ce;
+            animation-duration: 19s;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            left: 92%;
+            background: #ffe0ed;
+            width: 50px;
+            height: 65px;
+            animation-duration: 23s;
+            animation-delay: 6s;
+        }
+
+        .balloon:nth-child(5) {
+            left: 48%;
+            background: #ffc0d9;
+            width: 40px;
+            height: 55px;
+            animation-duration: 20s;
+            animation-delay: 9s;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(-8deg);
+            }
+            50% {
+                transform: translateY(-55vh) rotate(8deg);
+            }
+            100% {
+                transform: translateY(-125vh) rotate(-8deg);
+            }
+        }
+
+        /* Main content */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            min-height: 100vh;
+            margin: auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .date-label {
+            display: inline-block;
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid #ffd0e3;
+            border-radius: 30px;
+            color: #c45d91;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(220, 120, 165, 0.1);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 8vw, 75px);
+            line-height: 1.15;
+            color: #b94f83;
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            display: block;
+            color: #e98db7;
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #9c6a82;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        /* Photo */
+        .photo-frame {
+            width: 220px;
+            height: 260px;
+            padding: 8px;
+            background: white;
+            border-radius: 110px 110px 25px 25px;
+            box-shadow: 0 15px 45px rgba(204, 100, 150, 0.2);
+            margin-bottom: 30px;
+            transform: rotate(-2deg);
+            transition: 0.4s ease;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.04);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 105px 105px 20px 20px;
+        }
+
+        /* Birthday message */
+        .message {
+            max-width: 550px;
+            font-size: 15px;
+            line-height: 1.9;
+            color: #88536d;
+            margin-bottom: 35px;
+        }
+
+        .message strong {
+            color: #c04e87;
+        }
+
+        /* Birthday cake */
+        .cake-section {
+            margin-bottom: 25px;
+        }
+
+        .cake {
+            position: relative;
+            width: 160px;
+            height: 140px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cake:hover {
+            transform: scale(1.08);
+        }
+
+        .cake-base {
+            position: absolute;
+            width: 150px;
+            height: 70px;
+            background: #f6a6c8;
+            bottom: 0;
+            left: 5px;
+            border-radius: 12px 12px 18px 18px;
+            box-shadow: inset 0 -8px 0 #e78db5;
+        }
+
+        .cake-middle {
+            position: absolute;
+            width: 135px;
+            height: 35px;
+            background: #fff0f6;
+            left: 12px;
+            bottom: 58px;
+            border-radius: 10px 10px 15px 15px;
+        }
+
+        .cake-top {
+            position: absolute;
+            width: 135px;
+            height: 32px;
+            background: #ffc5dd;
+            left: 12px;
+            bottom: 80px;
+            border-radius: 50%;
+            border: 3px solid #ffe9f2;
+        }
+
+        .icing {
+            position: absolute;
+            background: #fff7fb;
+            width: 22px;
+            height: 24px;
+            border-radius: 0 0 12px 12px;
+            top: 15px;
+            left: 30px;
+        }
+
+        .icing:nth-child(2) {
+            left: 65px;
+            height: 17px;
+        }
+
+        .icing:nth-child(3) {
+            left: 100px;
+            height: 23px;
+        }
+
+        .candle {
+            position: absolute;
+            width: 9px;
+            height: 35px;
+            background: repeating-linear-gradient(
+                45deg,
+                #fff 0px,
+                #fff 5px,
+                #f48ab8 5px,
+                #f48ab8 9px
+            );
+            left: 76px;
+            top: 0;
+            border-radius: 3px;
+        }
+
+        .flame {
+            position: absolute;
+            width: 15px;
+            height: 23px;
+            background: linear-gradient(#fff4a6, #ff9c4b);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            top: -22px;
+            left: -3px;
+            box-shadow: 0 0 20px #ffca7a;
+            animation: flicker 0.6s infinite alternate;
+        }
+
+        @keyframes flicker {
+            from {
+                transform: rotate(-45deg) scale(1);
+            }
+            to {
+                transform: rotate(-42deg) scale(1.15);
+            }
+        }
+
+        .cake-hint {
+            color: #c46c96;
+            font-size: 13px;
+            margin-top: 18px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.65;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Button */
+        .wish-button {
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #f5a4c8, #d96b9e);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(213, 100, 155, 0.3);
+            transition: 0.3s;
+        }
+
+        .wish-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(213, 100, 155, 0.4);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #bd8ca5;
+        }
+
+        /* Fireworks canvas */
+        #fireworks {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 230, 241, 0.75);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(180, 80, 130, 0.2);
+            animation: popIn 0.5s ease;
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #c04e87;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #96627c;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .close-button {
+            border: none;
+            background: #f5a4c8;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 20px;
+            }
+
+            .photo-frame {
+                width: 185px;
+                height: 220px;
+            }
+
+            .message {
+                font-size: 14px;
+            }
+
+            .balloon {
+                width: 45px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+
+    <!-- Animated balloons -->
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <!-- Fireworks -->
+    <canvas id="fireworks"></canvas>
+
+    <main class="container">
+
+        <div class="date-label">
+            ✨ 05 NOVEMBER ✨
+        </div>
+
+        <h1>
+            Happy Birthday
+            <span>yang ke 23</span>
+        </h1>
+
+        <p class="subtitle">
+            Today is all about celebrating someone special 
+        </p>
+
+        <!-- Replace this image with your real photo -->
+        <div class="photo-frame">
+            <img src="ulangtahun.jpg"
+                 alt="Foto perempuan yang berulang tahun"
+                 onerror="this.src='https://placehold.co/400x500/ffe4ef/c45d91?text=Your+Beautiful+Photo'">
+        </div>
+
+        <div class="message">
+            <p>
+                Selamat ulang tahun untuk seseorang yang begitu istimewa.
+                Semoga setiap langkahmu selalu dipenuhi kebahagiaan,
+                setiap impianmu perlahan menjadi nyata, amin. 🌷
+            </p>
+            <br>
+            <p>
+                <strong>Keep shining, keep smiling, and always be yourself.</strong>
+                You deserve all the beautiful things in this world.
+            </p>
+        </div>
+
+        <!-- Interactive birthday cake -->
+        <div class="cake-section">
+
+            <div class="cake" id="birthdayCake" onclick="celebrate()">
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="cake-top">
+                    <div class="icing"></div>
+                    <div class="icing"></div>
+                    <div class="icing"></div>
+                </div>
+
+                <div class="cake-middle"></div>
+                <div class="cake-base"></div>
+
+            </div>
+
+            <p class="cake-hint">
+                Tap the cake to make a wish! 🎂
+            </p>
+
+        </div>
+
+        <button class="wish-button" onclick="showWish()">
+            Open Your Birthday Wish 💌
+        </button>
+
+        <div class="footer">
+            Made with ♡ just for you · 5 November
+        </div>
+
+    </main>
+
+    <!-- Birthday wish modal -->
+    <div class="modal" id="wishModal">
+        <div class="modal-content">
+            <h2>Make a Wish! ✨</h2>
+
+            <p>
+                Semoga di usia yang baru ini kamu selalu dikelilingi
+                orang-orang baik, diberikan kesehatan, dan dipermudah
+                dalam meraih semua cita-citamu.
+                <br><br>
+                Jangan pernah berhenti bersinar,
+                karena dunia menjadi lebih indah dengan kehadiranmu. 
+            </p>
+
+            <button class="close-button" onclick="closeWish()">
+                Thank You ♡
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ====================================
+        // BIRTHDAY WISH
+        // ====================================
+
+        function showWish() {
+            document.getElementById("wishModal").style.display = "flex";
+            launchFireworks();
+        }
+
+        function closeWish() {
+            document.getElementById("wishModal").style.display = "none";
+        }
+
+        // ====================================
+        // FIREWORKS ANIMATION
+        // ====================================
+
+        const canvas = document.getElementById("fireworks");
+        const ctx = canvas.getContext("2d");
+
+        let particles = [];
+        let animationRunning = false;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 2;
+
+                this.velocityX = Math.cos(angle) * speed;
+                this.velocityY = Math.sin(angle) * speed;
+
+                this.alpha = 1;
+                this.gravity = 0.05;
+                this.size = Math.random() * 3 + 1;
+            }
+
+            update() {
+                this.x += this.velocityX;
+                this.y += this.velocityY;
+
+                this.velocityY += this.gravity;
+                this.velocityX *= 0.99;
+
+                this.alpha -= 0.012;
+            }
+
+            draw() {
+                ctx.save();
+
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+
+                ctx.beginPath();
+                ctx.arc(
+                    this.x,
+                    this.y,
+                    this.size,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function createFirework(x, y) {
+            const colors = [
+                "#ff77b7",
+                "#ffd166",
+                "#ffffff",
+                "#ff9ec8",
+                "#d8a7ff",
+                "#ffb3c6"
+            ];
+
+            const color = colors[
+                Math.floor(Math.random() * colors.length)
+            ];
+
+            for (let i = 0; i < 80; i++) {
+                particles.push(
+                    new Particle(x, y, color)
+                );
+            }
+        }
+
+        function animateFireworks() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle, index) => {
+                particle.update();
+                particle.draw();
+
+                if (particle.alpha <= 0) {
+                    particles.splice(index, 1);
+                }
+            });
+
+            if (particles.length > 0) {
+                requestAnimationFrame(animateFireworks);
+            } else {
+                animationRunning = false;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function launchFireworks() {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height * 0.5;
+
+            createFirework(x, y);
+
+            if (!animationRunning) {
+                animationRunning = true;
+                animateFireworks();
+            }
+        }
+
+        // Click cake to launch multiple fireworks
+        function celebrate() {
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    createFirework(
+                        Math.random() * canvas.width,
+                        Math.random() * canvas.height * 0.6
+                    );
+
+                    if (!animationRunning) {
+                        animationRunning = true;
+                        animateFireworks();
+                    }
+
+                }, i * 350);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday | 5 November</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(
+                135deg,
+                #ffffff 0%,
+                #fff5fa 40%,
+                #ffd9e9 100%
+            );
+            color: #6b3450;
+            overflow-x: hidden;
+        }
+
+        /* Background decoration */
+        .background-glow {
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            z-index: -1;
+        }
+
+        .glow-1 {
+            background: #ffb6d5;
+            top: -150px;
+            left: -100px;
+        }
+
+        .glow-2 {
+            background: #ffd6e8;
+            bottom: -150px;
+            right: -100px;
+        }
+
+        /* Floating balloons */
+        .balloons {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -180px;
+            width: 65px;
+            height: 82px;
+            border-radius: 50% 50% 45% 45%;
+            opacity: 0.65;
+            animation: floatUp linear infinite;
+        }
+
+        .balloon::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 13px;
+            background: inherit;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 65px;
+            background: rgba(180, 100, 140, 0.4);
+            top: 88px;
+            left: 50%;
+        }
+
+        .balloon:nth-child(1) {
+            left: 5%;
+            background: #ff9ec8;
+            animation-duration: 17s;
+        }
+
+        .balloon:nth-child(2) {
+            left: 20%;
+            background: #ffc9df;
+            width: 45px;
+            height: 60px;
+            animation-duration: 21s;
+            animation-delay: 4s;
+        }
+
+        .balloon:nth-child(3) {
+            left: 78%;
+            background: #f8a9ce;
+            animation-duration: 19s;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            left: 92%;
+            background: #ffe0ed;
+            width: 50px;
+            height: 65px;
+            animation-duration: 23s;
+            animation-delay: 6s;
+        }
+
+        .balloon:nth-child(5) {
+            left: 48%;
+            background: #ffc0d9;
+            width: 40px;
+            height: 55px;
+            animation-duration: 20s;
+            animation-delay: 9s;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(-8deg);
+            }
+            50% {
+                transform: translateY(-55vh) rotate(8deg);
+            }
+            100% {
+                transform: translateY(-125vh) rotate(-8deg);
+            }
+        }
+
+        /* Main content */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            min-height: 100vh;
+            margin: auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .date-label {
+            display: inline-block;
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid #ffd0e3;
+            border-radius: 30px;
+            color: #c45d91;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(220, 120, 165, 0.1);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 8vw, 75px);
+            line-height: 1.15;
+            color: #b94f83;
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            display: block;
+            color: #e98db7;
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #9c6a82;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        /* Photo */
+        .photo-frame {
+            width: 220px;
+            height: 260px;
+            padding: 8px;
+            background: white;
+            border-radius: 110px 110px 25px 25px;
+            box-shadow: 0 15px 45px rgba(204, 100, 150, 0.2);
+            margin-bottom: 30px;
+            transform: rotate(-2deg);
+            transition: 0.4s ease;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.04);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 105px 105px 20px 20px;
+        }
+
+        /* Birthday message */
+        .message {
+            max-width: 550px;
+            font-size: 15px;
+            line-height: 1.9;
+            color: #88536d;
+            margin-bottom: 35px;
+        }
+
+        .message strong {
+            color: #c04e87;
+        }
+
+        /* Birthday cake */
+        .cake-section {
+            margin-bottom: 25px;
+        }
+
+        .cake {
+            position: relative;
+            width: 160px;
+            height: 140px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cake:hover {
+            transform: scale(1.08);
+        }
+
+        .cake-base {
+            position: absolute;
+            width: 150px;
+            height: 70px;
+            background: #f6a6c8;
+            bottom: 0;
+            left: 5px;
+            border-radius: 12px 12px 18px 18px;
+            box-shadow: inset 0 -8px 0 #e78db5;
+        }
+
+        .cake-middle {
+            position: absolute;
+            width: 135px;
+            height: 35px;
+            background: #fff0f6;
+            left: 12px;
+            bottom: 58px;
+            border-radius: 10px 10px 15px 15px;
+        }
+
+        .cake-top {
+            position: absolute;
+            width: 135px;
+            height: 32px;
+            background: #ffc5dd;
+            left: 12px;
+            bottom: 80px;
+            border-radius: 50%;
+            border: 3px solid #ffe9f2;
+        }
+
+        .icing {
+            position: absolute;
+            background: #fff7fb;
+            width: 22px;
+            height: 24px;
+            border-radius: 0 0 12px 12px;
+            top: 15px;
+            left: 30px;
+        }
+
+        .icing:nth-child(2) {
+            left: 65px;
+            height: 17px;
+        }
+
+        .icing:nth-child(3) {
+            left: 100px;
+            height: 23px;
+        }
+
+        .candle {
+            position: absolute;
+            width: 9px;
+            height: 35px;
+            background: repeating-linear-gradient(
+                45deg,
+                #fff 0px,
+                #fff 5px,
+                #f48ab8 5px,
+                #f48ab8 9px
+            );
+            left: 76px;
+            top: 0;
+            border-radius: 3px;
+        }
+
+        .flame {
+            position: absolute;
+            width: 15px;
+            height: 23px;
+            background: linear-gradient(#fff4a6, #ff9c4b);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            top: -22px;
+            left: -3px;
+            box-shadow: 0 0 20px #ffca7a;
+            animation: flicker 0.6s infinite alternate;
+        }
+
+        @keyframes flicker {
+            from {
+                transform: rotate(-45deg) scale(1);
+            }
+            to {
+                transform: rotate(-42deg) scale(1.15);
+            }
+        }
+
+        .cake-hint {
+            color: #c46c96;
+            font-size: 13px;
+            margin-top: 18px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.65;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Button */
+        .wish-button {
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #f5a4c8, #d96b9e);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(213, 100, 155, 0.3);
+            transition: 0.3s;
+        }
+
+        .wish-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(213, 100, 155, 0.4);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #bd8ca5;
+        }
+
+        /* Fireworks canvas */
+        #fireworks {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 230, 241, 0.75);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(180, 80, 130, 0.2);
+            animation: popIn 0.5s ease;
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #c04e87;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #96627c;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .close-button {
+            border: none;
+            background: #f5a4c8;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 20px;
+            }
+
+            .photo-frame {
+                width: 185px;
+                height: 220px;
+            }
+
+            .message {
+                font-size: 14px;
+            }
+
+            .balloon {
+                width: 45px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+
+    <!-- Animated balloons -->
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <!-- Fireworks -->
+    <canvas id="fireworks"></canvas>
+
+    <main class="container">
+
+        <div class="date-label">
+            ✨ 05 NOVEMBER ✨
+        </div>
+
+        <h1>
+            Happy Birthday
+            <span>yang ke 23</span>
+        </h1>
+
+        <p class="subtitle">
+            Today is all about celebrating someone special 💗
+        </p>
+
+        <!-- Replace this image with your real photo -->
+        <div class="photo-frame">
+            <img src="ulangtahun2.webp"
+                 alt="Foto perempuan yang berulang tahun"
+                 onerror="this.src='https://placehold.co/400x500/ffe4ef/c45d91?text=Your+Beautiful+Photo'">
+        </div>
+
+        <div class="message">
+            <p>
+                Selamat ulang tahun untuk seseorang yang begitu istimewa.
+                Semoga setiap langkahmu selalu dipenuhi kebahagiaan,
+                setiap impianmu perlahan menjadi nyata, amin. 🌷
+            </p>
+            <br>
+            <p>
+                <strong>Keep shining, keep smiling, and always be yourself.</strong>
+                You deserve all the beautiful things in this world.
+            </p>
+        </div>
+
+        <!-- Interactive birthday cake -->
+        <div class="cake-section">
+
+            <div class="cake" id="birthdayCake" onclick="celebrate()">
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="cake-top">
+                    <div class="icing"></div>
+                    <div class="icing"></div>
+                    <div class="icing"></div>
+                </div>
+
+                <div class="cake-middle"></div>
+                <div class="cake-base"></div>
+
+            </div>
+
+            <p class="cake-hint">
+                Tap the cake to make a wish! 🎂
+            </p>
+
+        </div>
+
+        <button class="wish-button" onclick="showWish()">
+            Open Your Birthday Wish 💌
+        </button>
+
+        <div class="footer">
+            Made with  just for you · 5 November
+        </div>
+
+    </main>
+
+    <!-- Birthday wish modal -->
+    <div class="modal" id="wishModal">
+        <div class="modal-content">
+            <h2>Make a Wish! ✨</h2>
+
+            <p>
+                Semoga di usia yang baru ini kamu selalu dikelilingi
+                orang-orang baik, diberikan kesehatan, dan dipermudah
+                dalam meraih semua cita-citamu.
+                <br><br>
+                Jangan pernah berhenti bersinar,
+                karena dunia menjadi lebih indah dengan kehadiranmu. 💖
+            </p>
+
+            <button class="close-button" onclick="closeWish()">
+                Thank You ♡
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ====================================
+        // BIRTHDAY WISH
+        // ====================================
+
+        function showWish() {
+            document.getElementById("wishModal").style.display = "flex";
+            launchFireworks();
+        }
+
+        function closeWish() {
+            document.getElementById("wishModal").style.display = "none";
+        }
+
+        // ====================================
+        // FIREWORKS ANIMATION
+        // ====================================
+
+        const canvas = document.getElementById("fireworks");
+        const ctx = canvas.getContext("2d");
+
+        let particles = [];
+        let animationRunning = false;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 2;
+
+                this.velocityX = Math.cos(angle) * speed;
+                this.velocityY = Math.sin(angle) * speed;
+
+                this.alpha = 1;
+                this.gravity = 0.05;
+                this.size = Math.random() * 3 + 1;
+            }
+
+            update() {
+                this.x += this.velocityX;
+                this.y += this.velocityY;
+
+                this.velocityY += this.gravity;
+                this.velocityX *= 0.99;
+
+                this.alpha -= 0.012;
+            }
+
+            draw() {
+                ctx.save();
+
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+
+                ctx.beginPath();
+                ctx.arc(
+                    this.x,
+                    this.y,
+                    this.size,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function createFirework(x, y) {
+            const colors = [
+                "#ff77b7",
+                "#ffd166",
+                "#ffffff",
+                "#ff9ec8",
+                "#d8a7ff",
+                "#ffb3c6"
+            ];
+
+            const color = colors[
+                Math.floor(Math.random() * colors.length)
+            ];
+
+            for (let i = 0; i < 80; i++) {
+                particles.push(
+                    new Particle(x, y, color)
+                );
+            }
+        }
+
+        function animateFireworks() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle, index) => {
+                particle.update();
+                particle.draw();
+
+                if (particle.alpha <= 0) {
+                    particles.splice(index, 1);
+                }
+            });
+
+            if (particles.length > 0) {
+                requestAnimationFrame(animateFireworks);
+            } else {
+                animationRunning = false;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function launchFireworks() {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height * 0.5;
+
+            createFirework(x, y);
+
+            if (!animationRunning) {
+                animationRunning = true;
+                animateFireworks();
+            }
+        }
+
+        // Click cake to launch multiple fireworks
+        function celebrate() {
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    createFirework(
+                        Math.random() * canvas.width,
+                        Math.random() * canvas.height * 0.6
+                    );
+
+                    if (!animationRunning) {
+                        animationRunning = true;
+                        animateFireworks();
+                    }
+
+                }, i * 350);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
